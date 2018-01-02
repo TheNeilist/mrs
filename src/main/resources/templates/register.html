@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="fragments/head:: head"></div>
+<body>
+<div th:replace="fragments/header :: header"></div>
+
+<div class="w3-container content">
+    <h1>Register</h1>
+
+    <form action="#" th:action="@{/register}" th:object="${user}" method="post" class="w3-container">
+        <input type="radio" name="userType" value="host" onclick="toggleForm('host');"/> Host a Meeting in Your
+        Home<br/>
+        <input type="radio" name="userType" value="attendee" onclick="toggleForm('attendee');"/> Volunteer to Attend a
+        Meeting
+
+        <!--<div id="formRegister" style="display:none">-->
+        <div id="formRegister">
+            <h2 id="registrationType"></h2>
+
+            <label for="name">Name</label>
+            <input type="text" id="name" th:field="*{name}" class="w3-input"/>
+
+            <label for="phone">Phone</label>
+            <input type="text" id="phone" th:field="*{phone}" class="w3-input"/>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" th:field="*{email}" class="w3-input"/>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" th:field="*{password}" class="w3-input"/>
+
+            <label for="password2">Re-Enter Password</label>
+            <input type="password" id="password2" th:field="*{password2}" class="w3-input"/>
+
+            <div id="divAddress">
+                <label for="address1">Address Line 1</label>
+                <input type="text" id="address1" th:field="*{address1}" class="w3-input"/>
+
+                <label for="address2">Address Line 2</label>
+                <input type="text" id="address2" th:field="*{address2}" class="w3-input"/>
+
+                <label for="city">City</label>
+                <input type="text" id="city" th:field="*{city}" class="w3-input"/>
+
+                <label for="state">State</label>
+                <input type="text" id="state" th:field="*{state}" class="w3-input"/>
+            </div>
+            <label for="zipcode">Zip Code</label>
+            <input type="text" id="zipcode" th:field="*{zipcode}" class="w3-input"/>
+
+            <div id="divTravelRange">
+                <label for="travelRange">Travel Range</label>
+                <input type="text" id="travelRange" th:field="*{travelRange}" class="w3-input"/>
+            </div>
+
+            <div id="divSobrietyDate">
+                <label for="sobrietyDate">Sobriety Date</label>
+                <input type="text" id="sobrietyDate" th:field="*{sobrietyDate}" class="w3-input"/>
+            </div>
+
+            <button name="buttonSubmit" type="submit" value="1">Submit</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    function toggleForm(formType){
+        <!--if (formType === 'host') {-->
+            <!--document.getElementById('registrationType').innerHTML = 'Host Registration Form';-->
+            <!--document.getElementById('formRegister').style.display ='block';-->
+            <!--document.getElementById('divAddress').style.display ='block';-->
+            <!--document.getElementById('divTravelRange').style.display ='none';-->
+        <!--} else-->
+        <!--if (formType === 'attendee') {-->
+            <!--document.getElementById('registrationType').innerHTML = 'Volunteer Attendee Registration Form';-->
+            <!--document.getElementById('formRegister').style.display ='block';-->
+            <!--document.getElementById('divAddress').style.display ='none';-->
+            <!--document.getElementById('divTravelRange').style.display ='block';-->
+        <!--}-->
+    }
+</script>
+
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
