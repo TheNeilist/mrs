@@ -3,7 +3,7 @@
 if [ -a /tmp/mrs-pid ]
         then
                 MRS_PID=$(cat /tmp/mrs-pid)
-		echo "Killing process MRS_PID"
+		echo "Killing process $MRS_PID"
                 kill -9 $MRS_PID
                 rm -f /tmp/mrs-pid
 	else
