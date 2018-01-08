@@ -12,8 +12,8 @@ import org.thymeleaf.templateresolver.ITemplateResolver;
 @SpringBootApplication
 public class MrsApplication {
 
-	@Autowired
-	private ThymeleafProperties thymeleafProperties;
+//	@Autowired
+//	private ThymeleafProperties thymeleafProperties;
 
 	@Value("${spring.thymeleaf.templates_root:}")
 	private String templatesRoot;
@@ -25,13 +25,13 @@ public class MrsApplication {
 		SpringApplication.run(MrsApplication.class, args);
 	}
 
-	@Bean
-	public ITemplateResolver defaultTemplateResolver() {
-		FileTemplateResolver resolver = new FileTemplateResolver();
-		resolver.setSuffix(thymeleafProperties.getSuffix());
-		resolver.setPrefix(templatesRoot);
-		resolver.setTemplateMode(thymeleafProperties.getMode());
-		resolver.setCacheable(thymeleafProperties.isCache());
-		return resolver;
-	}
+//	@Bean
+//	public ITemplateResolver defaultTemplateResolver() {
+//		FileTemplateResolver resolver = new FileTemplateResolver();
+//		resolver.setSuffix(thymeleafProperties.getSuffix());
+//		resolver.setPrefix(templatesRoot);
+//		resolver.setTemplateMode(thymeleafProperties.getMode());
+//		resolver.setCacheable(thymeleafProperties.isCache());
+//		return resolver;
+//	}
 }
