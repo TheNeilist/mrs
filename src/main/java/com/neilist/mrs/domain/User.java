@@ -14,9 +14,10 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
-    @Column(name = "user_type")
-    @NotEmpty(message = "User type is required.")
-    private String userType;
+    @Column(name = "host")
+    private Boolean host;
+    @Column(name = "volunteer")
+    private Boolean volunteer;
     @Column(name = "email")
     @Email(message = "Invalid email.")
     @NotEmpty(message = "Email is required.")
@@ -36,10 +37,13 @@ public class User {
     @Column(name = "address2")
     private String address2;
     @Column(name = "city")
+    @NotEmpty(message = "City is required.")
     private String city;
     @Column(name = "state")
+    @NotEmpty(message = "State is required.")
     private String state;
     @Column(name = "zipcode")
+    @NotEmpty(message = "Zip code is required.")
     private String zipcode;
     @Column(name = "travel_range")
     private Integer travelRange;
@@ -53,9 +57,10 @@ public class User {
     public User() {
     }
 
-    public User(Long id, String userType, String email, String name, String password, String password2, String phone, String address1, String address2, String city, String state, String zipcode, Integer travelRange, Date sobrietyDate, String authToken, Date authExpiration) {
+    public User(Long id, Boolean host, Boolean volunteer, String email, String name, String password, String password2, String phone, String address1, String address2, String city, String state, String zipcode, Integer travelRange, Date sobrietyDate, String authToken, Date authExpiration) {
         this.id = id;
-        this.userType = userType;
+        this.host = host;
+        this.volunteer = volunteer;
         this.email = email;
         this.name = name;
         this.password = password;
@@ -80,12 +85,20 @@ public class User {
         this.id = id;
     }
 
-    public String getUserType() {
-        return userType;
+    public Boolean getHost() {
+        return host;
     }
 
-    public void setUserType(String userType) {
-        this.userType = userType;
+    public void setHost(Boolean host) {
+        this.host = host;
+    }
+
+    public Boolean getVolunteer() {
+        return volunteer;
+    }
+
+    public void setVolunteer(Boolean volunteer) {
+        this.volunteer = volunteer;
     }
 
     public String getEmail() {

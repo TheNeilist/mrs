@@ -8,7 +8,8 @@ DROP TABLE IF EXISTS `user`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `user` (
   `id` bigint NOT NULL AUTO_INCREMENT,
-  `user_type` varchar(255) NOT NULL,
+  `host` boolean NOT NULL,
+  `volunteer` boolean NOT NULL,
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL UNIQUE,
   `phone` varchar(255) DEFAULT NULL,
@@ -18,7 +19,7 @@ CREATE TABLE `user` (
   `state` varchar(255) NOT NULL,
   `zipcode` varchar(255) NOT NULL,
   `travel_range` int NOT NULL,
-  `sobriety_date` date NOT NULL,
+  `sobriety_date` varchar(255) DEFAULT NULL,
   `auth_token` varchar(255) DEFAULT NULL,
   `auth_expiration` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)

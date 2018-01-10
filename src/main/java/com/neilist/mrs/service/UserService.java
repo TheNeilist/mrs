@@ -1,4 +1,4 @@
-package com.neilist.mrs;
+package com.neilist.mrs.service;
 
 import com.neilist.mrs.domain.User;
 import com.neilist.mrs.repository.UserRepository;
