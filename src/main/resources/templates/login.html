@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="fragments/head:: head"></div>
+<body>
+<div th:replace="fragments/header :: header"></div>
+
+<div class="w3-container content">
+
+    <h1>Login</h1>
+
+    <div align="center" th:if="${param.error}">
+        <p style="w3-red">Email or Password invalid, please verify</p>
+    </div>
+
+    <form action="#" th:action="@{/login}" method="post" class="w3-container">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" class="w3-input" autofocus="autofocus" />
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" class="w3-input"/>
+
+        <button name="buttonSubmit" type="submit" value="1">Login</button>
+
+    </form>
+
+</div>
+
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

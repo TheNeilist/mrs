@@ -22,10 +22,13 @@ public class User {
     @Email(message = "Invalid email.")
     @NotEmpty(message = "Email is required.")
     private String email;
-    @Column(name = "name")
-    @NotEmpty(message = "Name is required.")
-    private String name;
-    @Transient
+    @Column(name = "first_name")
+    @NotEmpty(message = "First name is required.")
+    private String firstName;
+    @Column(name = "last_name")
+    @NotEmpty(message = "Last name or initial is required.")
+    private String lastName;
+    @Column(name = "password")
     private String password;
     @Transient
     private String password2;
@@ -49,20 +52,19 @@ public class User {
     private Integer travelRange;
     @Column(name = "sobriety_date")
     private Date sobrietyDate;
-    @Column(name = "auth_token")
-    private String authToken;
-    @Column(name = "auth_expiration")
-    private Date authExpiration;
+    @Column(name = "active")
+    private Boolean active;
 
     public User() {
     }
 
-    public User(Long id, Boolean host, Boolean volunteer, String email, String name, String password, String password2, String phone, String address1, String address2, String city, String state, String zipcode, Integer travelRange, Date sobrietyDate, String authToken, Date authExpiration) {
+    public User(Long id, Boolean host, Boolean volunteer, String email, String firstName, String lastName, String password, String password2, String phone, String address1, String address2, String city, String state, String zipcode, Integer travelRange, Date sobrietyDate, Boolean active) {
         this.id = id;
         this.host = host;
         this.volunteer = volunteer;
         this.email = email;
-        this.name = name;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.password = password;
         this.password2 = password2;
         this.phone = phone;
@@ -73,8 +75,7 @@ public class User {
         this.zipcode = zipcode;
         this.travelRange = travelRange;
         this.sobrietyDate = sobrietyDate;
-        this.authToken = authToken;
-        this.authExpiration = authExpiration;
+        this.active = active;
     }
 
     public Long getId() {
@@ -109,12 +110,20 @@ public class User {
         this.email = email;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getPassword() {
@@ -197,19 +206,11 @@ public class User {
         this.sobrietyDate = sobrietyDate;
     }
 
-    public String getAuthToken() {
-        return authToken;
+    public Boolean isActive() {
+        return active;
     }
 
-    public void setAuthToken(String authToken) {
-        this.authToken = authToken;
-    }
-
-    public Date getAuthExpiration() {
-        return authExpiration;
-    }
-
-    public void setAuthExpiration(Date authExpiration) {
-        this.authExpiration = authExpiration;
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 }

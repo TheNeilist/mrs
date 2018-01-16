@@ -13,8 +13,11 @@
         <input type="checkbox" id="volunteer" th:field="*{volunteer}" /> Volunteer to Attend a
         Meeting<br/><br/>
 
-        <label for="name">Name* <span th:errors="*{name}" class="w3-red"></span></label>
-        <input type="text" id="name" th:field="*{name}" class="w3-input"/>
+        <label for="firstName">First Name* <span th:errors="*{firstName}" class="w3-red"></span></label>
+        <input type="text" id="firstName" th:field="*{firstName}" class="w3-input"/>
+
+        <label for="lastName">Last Name* <span th:errors="*{lastName}" class="w3-red"></span></label>
+        <input type="text" id="lastName" th:field="*{lastName}" class="w3-input"/>
 
         <label for="phone">Phone* <span th:errors="*{phone}" class="w3-red"></span></label>
         <input type="text" id="phone" th:field="*{phone}" class="w3-input"/>

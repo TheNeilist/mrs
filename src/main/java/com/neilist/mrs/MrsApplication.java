@@ -1,37 +1,26 @@
 package com.neilist.mrs;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.thymeleaf.ThymeleafProperties;
 import org.springframework.context.annotation.Bean;
-import org.thymeleaf.templateresolver.FileTemplateResolver;
-import org.thymeleaf.templateresolver.ITemplateResolver;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @SpringBootApplication
 public class MrsApplication {
 
-//	@Autowired
-//	private ThymeleafProperties thymeleafProperties;
+    public static void main(String[] args) {
+        SpringApplication.run(MrsApplication.class, args);
+    }
 
-	@Value("${spring.thymeleaf.templates_root:}")
-	private String templatesRoot;
+    @Bean
+    public ObjectMapper objectMapper() {
+        return new ObjectMapper();
+    }
 
-	public MrsApplication() {
-	}
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 
-	public static void main(String[] args) {
-		SpringApplication.run(MrsApplication.class, args);
-	}
-
-//	@Bean
-//	public ITemplateResolver defaultTemplateResolver() {
-//		FileTemplateResolver resolver = new FileTemplateResolver();
-//		resolver.setSuffix(thymeleafProperties.getSuffix());
-//		resolver.setPrefix(templatesRoot);
-//		resolver.setTemplateMode(thymeleafProperties.getMode());
-//		resolver.setCacheable(thymeleafProperties.isCache());
-//		return resolver;
-//	}
 }

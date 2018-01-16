@@ -13,11 +13,6 @@ public class HomeController {
         return "index";
     }
 
-    @RequestMapping("/about")
-    public String about() {
-        return "about";
-    }
-
     @RequestMapping("/register")
     public String register() {
         return "register";
@@ -27,11 +22,5 @@ public class HomeController {
     public String help() {
         return "gethelp";
     }
-
-//    @RequestMapping("/greeting")
-//    public String greeting(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model) {
-//        model.addAttribute("name", name);
-//        return "greeting";
-//    }
 
 }

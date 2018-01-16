@@ -10,8 +10,10 @@ CREATE TABLE `user` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `host` boolean NOT NULL,
   `volunteer` boolean NOT NULL,
-  `name` varchar(255) NOT NULL,
+  `first_name` varchar(255) NOT NULL,
+  `last_name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL UNIQUE,
+  `password` varchar(255) NOT NULL,
   `phone` varchar(255) DEFAULT NULL,
   `address1` varchar(255) NOT NULL,
   `address2` varchar(255) DEFAULT NULL,
@@ -20,8 +22,7 @@ CREATE TABLE `user` (
   `zipcode` varchar(255) NOT NULL,
   `travel_range` int NOT NULL,
   `sobriety_date` varchar(255) DEFAULT NULL,
-  `auth_token` varchar(255) DEFAULT NULL,
-  `auth_expiration` datetime DEFAULT NULL,
+  `active` boolean NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
