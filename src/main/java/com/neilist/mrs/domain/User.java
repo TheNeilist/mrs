@@ -4,6 +4,7 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Entity
@@ -14,8 +15,10 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
+    @NotNull
     @Column(name = "host")
     private Boolean host;
+    @NotNull
     @Column(name = "volunteer")
     private Boolean volunteer;
     @Column(name = "email")
@@ -26,14 +29,12 @@ public class User {
     @NotEmpty(message = "First name is required.")
     private String firstName;
     @Column(name = "last_name")
-    @NotEmpty(message = "Last name or initial is required.")
     private String lastName;
     @Column(name = "password")
     private String password;
     @Transient
     private String password2;
     @Column(name = "phone")
-    @NotEmpty(message = "Phone is required.")
     private String phone;
     @Column(name = "address1")
     private String address1;

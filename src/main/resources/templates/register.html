@@ -8,9 +8,9 @@
     <h1>Register</h1>
 
     <form action="#" th:action="@{/register}" th:object="${user}" method="post" class="w3-container">
-        <input type="checkbox" id="host" th:field="*{host}" /> Host a Meeting in Your
+        <input type="checkbox" id="host" th:field="*{host}"/> Host a Meeting in Your
         Home<br/>
-        <input type="checkbox" id="volunteer" th:field="*{volunteer}" /> Volunteer to Attend a
+        <input type="checkbox" id="volunteer" th:field="*{volunteer}"/> Volunteer to Attend a
         Meeting<br/><br/>
 
         <label for="firstName">First Name* <span th:errors="*{firstName}" class="w3-red"></span></label>
@@ -31,7 +31,8 @@
         <label for="password2">Re-Enter Password*</label>
         <input type="password" id="password2" th:field="*{password2}" class="w3-input"/>
 
-        <label for="address1">Address Line 1 (required for host) <span th:errors="*{address1}" class="w3-red"></span></label>
+        <label for="address1">Address Line 1 (required for host) <span th:errors="*{address1}"
+                                                                       class="w3-red"></span></label>
         <input type="text" id="address1" th:field="*{address1}" class="w3-input"/>
 
         <label for="address2">Address Line 2</label>
@@ -49,13 +50,40 @@
         <label for="travelRange">Travel Range in Miles (required for volunteer) <span th:errors="*{travelRange}" class="w3-red"></span></label>
         <input type="text" id="travelRange" th:field="*{travelRange}" class="w3-input"/>
 
-        <label for="sobrietyDate">Sobriety Date* <span th:errors="*{sobrietyDate}" class="w3-red"></span></label>
-        <input type="text" id="sobrietyDate" th:field="*{sobrietyDate}" class="w3-input"/>
+        <!--<label for="sobrietyDate">Sobriety Date* <span th:errors="*{sobrietyDate}" class="w3-red"></span></label>-->
+        <!--<input type="text" id="sobrietyDate" th:field="*{sobrietyDate}" class="w3-input"/>-->
+
+        <label for="sobrietyDate">Sobriety Date</label><br/>
+        <div class="input-group date form_date col-md-5" data-date="" data-date-format="MM dd, yyyy"
+             data-link-field="sobrietyDate" data-link-format="mm/dd/yyyy">
+            <input class="form-control" size="16" type="text" value="" readonly="true"/>
+            <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+        </div>
+        <input type="hidden" id="sobrietyDate" value="" th:field="*{sobrietyDate}"/><br/><br/>
 
         <button name="buttonSubmit" type="submit" value="1">Submit</button>
 
     </form>
 </div>
+
+<script type="text/javascript" src="js/jquery-1.8.3.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
+<script type="text/javascript">
+
+	$('.form_date').datetimepicker({
+        language:  'en',
+        weekStart: 1,
+        todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 2,
+		minView: 2,
+		forceParse: 0
+    });
+
+</script>
 
 <div th:replace="fragments/footer :: footer"></div>
 </body>

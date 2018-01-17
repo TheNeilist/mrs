@@ -11,16 +11,16 @@ CREATE TABLE `user` (
   `host` boolean NOT NULL,
   `volunteer` boolean NOT NULL,
   `first_name` varchar(255) NOT NULL,
-  `last_name` varchar(255) NOT NULL,
+  `last_name` varchar(255) DEFAULT NULL,
   `email` varchar(255) NOT NULL UNIQUE,
   `password` varchar(255) NOT NULL,
   `phone` varchar(255) DEFAULT NULL,
-  `address1` varchar(255) NOT NULL,
+  `address1` varchar(255) DEFAULT NULL,
   `address2` varchar(255) DEFAULT NULL,
   `city` varchar(255) NOT NULL,
   `state` varchar(255) NOT NULL,
   `zipcode` varchar(255) NOT NULL,
-  `travel_range` int NOT NULL,
+  `travel_range` int DEFAULT NULL,
   `sobriety_date` varchar(255) DEFAULT NULL,
   `active` boolean NOT NULL,
   PRIMARY KEY (`id`)
@@ -29,14 +29,14 @@ CREATE TABLE `user` (
 
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `attendee_availability` (
+CREATE TABLE `volunteer_availability` (
   `id` bigint NOT NULL AUTO_INCREMENT,
-  `attendee_user_id` bigint DEFAULT NULL,
+  `volunteer_user_id` bigint DEFAULT NULL,
   `day_of_week` varchar(255) NOT NULL,
   `start_time` time,
   `end_time` time,
   PRIMARY KEY (`id`),
-  CONSTRAINT `fk_attendee_availability_attendee_user_id` FOREIGN KEY (`attendee_user_id`) REFERENCES `user` (`id`)
+  CONSTRAINT `fk_volunteer_availability_attendee_user_id` FOREIGN KEY (`volunteer_user_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
