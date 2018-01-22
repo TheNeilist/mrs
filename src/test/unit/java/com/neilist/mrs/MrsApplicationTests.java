@@ -1,4 +1,4 @@
-package com.neilist.mrs.mrs;
+package com.neilist.mrs;
 
 import org.junit.Ignore;
 import org.junit.Test;

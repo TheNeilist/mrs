@@ -1,12 +1,10 @@
 package com.neilist.mrs.repository;
 
-import com.neilist.mrs.domain.User;
+import com.neilist.mrs.domain.VolunteerAvailability;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository()
-public interface UserRepository extends JpaRepository<User, Long> {
-
-    User findByEmail(String email);
+public interface VolunteerAvailabilityRepository extends JpaRepository<VolunteerAvailability, Long> {
 
 }

@@ -1,11 +1,29 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <div th:replace="fragments/head:: head"></div>
 <body>
 <div th:replace="fragments/header :: header"></div>
 
 <div class="w3-container content">
     <h1>Meetings</h1>
+
+    <div sec:authorize="hasAuthority('HOST')">
+        <h2>My Requested Meetings</h2>
+        <a href="/meetings/host">Request to host a meeting.</a>
+        <!--TODO-->
+    </div>
+
+    <div sec:authorize="hasAuthority('VOLUNTEER')">
+        <h2>My Volunteer  Availability</h2>
+        <a href="/meetings/volunteer">Add availability.</a>
+        <!--TODO-->
+
+        <h2>Meeting Requests During My Availability</h2>
+        <!--TODO-->
+
+        <h2>Other Meeting Requests in My Area</h2>
+        <!--TODO-->
+    </div>
 
 </div>
 

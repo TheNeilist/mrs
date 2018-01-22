@@ -1,7 +1,7 @@
 -- CREATE SCHEMA `mrs` ;
 
-DROP TABLE IF EXISTS `attendee_availability`;
-DROP TABLE IF EXISTS `meeting_attendee`;
+DROP TABLE IF EXISTS `volunteer_availability`;
+DROP TABLE IF EXISTS `meeting_volunteer`;
 DROP TABLE IF EXISTS `meeting`;
 DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -32,11 +32,11 @@ CREATE TABLE `user` (
 CREATE TABLE `volunteer_availability` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `volunteer_user_id` bigint DEFAULT NULL,
-  `day_of_week` varchar(255) NOT NULL,
-  `start_time` time,
-  `end_time` time,
+  `day_of_week` int NOT NULL,
+  `start_minute` int NOT NULL,
+  `end_minute` int NOT NULL,
   PRIMARY KEY (`id`),
-  CONSTRAINT `fk_volunteer_availability_attendee_user_id` FOREIGN KEY (`volunteer_user_id`) REFERENCES `user` (`id`)
+  CONSTRAINT `fk_volunteer_availability_volunteer_user_id` FOREIGN KEY (`volunteer_user_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -44,8 +44,9 @@ CREATE TABLE `volunteer_availability` (
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `meeting` (
   `id` bigint NOT NULL AUTO_INCREMENT,
-  `host_user_id` bigint DEFAULT NULL,
-  `date_time` datetime,
+  `host_user_id` bigint NOT NULL,
+  `date_time` datetime NOT NULL,
+  `minute_of_day` int NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_meeting_host_user_id` FOREIGN KEY (`host_user_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
@@ -53,11 +54,11 @@ CREATE TABLE `meeting` (
 
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `meeting_attendee` (
+CREATE TABLE `meeting_volunteer` (
   `meeting_id` bigint NOT NULL,
-  `attendee_user_id` bigint NOT NULL,
-  PRIMARY KEY (`meeting_id`, `attendee_user_id`),
-  CONSTRAINT `fk_meeting_attendee_meeting_id` FOREIGN KEY (`meeting_id`) REFERENCES `meeting` (`id`),
-  CONSTRAINT `fk_meeting_attendee_attendee_user_id` FOREIGN KEY (`attendee_user_id`) REFERENCES `user` (`id`)
+  `volunteer_user_id` bigint NOT NULL,
+  PRIMARY KEY (`meeting_id`, `volunteer_user_id`),
+  CONSTRAINT `fk_meeting_volunteer_meeting_id` FOREIGN KEY (`meeting_id`) REFERENCES `meeting` (`id`),
+  CONSTRAINT `fk_meeting_volunteer_volunteer_user_id` FOREIGN KEY (`volunteer_user_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;

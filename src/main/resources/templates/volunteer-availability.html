@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="fragments/head:: head"></div>
+<body>
+<div th:replace="fragments/header :: header"></div>
+
+<div class="w3-container content">
+
+    <h1>Add Volunteer Availability to Attend a Meeting</h1>
+    <form action="#" th:action="@{/meetings/volunteer}" th:object="${volunteerAvailability}" method="post"
+          class="w3-container">
+
+        <label for="dayOfWeek">Day of Week</label><br/>
+        <div class="input-group col-md-3">
+            <select name="dayOfWeek" id="dayOfWeek" th:field="*{dayOfWeek}">
+                <option value="1">Monday</option>
+                <option value="2">Tuesday</option>
+                <option value="3">Wednesday</option>
+                <option value="4">Thursday</option>
+                <option value="5">Friday</option>
+                <option value="6">Saturday</option>
+                <option value="7">Sunday</option>
+            </select>
+        </div>
+        <label for="startTime">Start Time</label><br/>
+        <div class="input-group date form_time col-md-3" data-date="" data-date-format="hh:ii"
+             data-link-field="startTime" data-link-format="yyyy-mm-dd hh:ii">
+            <input class="form-control" size="16" type="text" value="" readonly="readonly"/>
+            <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+            <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+        </div>
+        <input type="hidden" id="startTime" value="" th:field="*{startTime}"/><br/>
+
+        <label for="endTime">End Time</label><br/>
+        <div class="input-group date form_time col-md-3" data-date="" data-date-format="hh:ii"
+             data-link-field="endTime" data-link-format="yyyy-mm-dd hh:ii">
+            <input class="form-control" size="16" type="text" value="" readonly="readonly"/>
+            <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+            <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+        </div>
+        <input type="hidden" id="endTime" value="" th:field="*{endTime}"/><br/>
+        <br/>
+
+        <button name="buttonSubmit" type="submit" value="1">Submit</button>
+    </form>
+
+</div>
+<script type="text/javascript" src="/js/jquery-1.8.3.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
+
+<script type="text/javascript">
+
+    $('.form_time').datetimepicker({
+        language:  'en',
+        weekStart: 0,
+        todayBtn:  0,
+		autoclose: 1,
+		todayHighlight: 0,
+		startView: 1,
+		minView: 0,
+		maxView: 1,
+		forceParse: 0
+    });
+
+</script>
+
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

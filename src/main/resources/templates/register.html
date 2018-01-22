@@ -50,13 +50,10 @@
         <label for="travelRange">Travel Range in Miles (required for volunteer) <span th:errors="*{travelRange}" class="w3-red"></span></label>
         <input type="text" id="travelRange" th:field="*{travelRange}" class="w3-input"/>
 
-        <!--<label for="sobrietyDate">Sobriety Date* <span th:errors="*{sobrietyDate}" class="w3-red"></span></label>-->
-        <!--<input type="text" id="sobrietyDate" th:field="*{sobrietyDate}" class="w3-input"/>-->
-
         <label for="sobrietyDate">Sobriety Date</label><br/>
         <div class="input-group date form_date col-md-5" data-date="" data-date-format="MM dd, yyyy"
              data-link-field="sobrietyDate" data-link-format="mm/dd/yyyy">
-            <input class="form-control" size="16" type="text" value="" readonly="true"/>
+            <input class="form-control" size="16" type="text" value="" readonly="readonly"/>
             <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
         </div>
