@@ -51,8 +51,6 @@ public class MeetingsController extends BaseController {
     @PostMapping("/meetings/volunteer")
     public String availabilitySave(@ModelAttribute("volunteerAvailability") VolunteerAvailability volunteerAvailability, BindingResult bindingResult) {
         volunteerAvailability.setVolunteerUserId(getUser().getId());
-        volunteerAvailability.setStartMinute(DateTimeUtil.minuteOfDay(volunteerAvailability.getStartTime()));
-        volunteerAvailability.setEndMinute(DateTimeUtil.minuteOfDay(volunteerAvailability.getEndTime()));
         volunteerAvailabilityRepository.save(volunteerAvailability);
         return "meetings";
     }

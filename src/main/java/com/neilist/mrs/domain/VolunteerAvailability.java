@@ -4,7 +4,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 @Entity
 @Table(name = "volunteer_availability")
@@ -20,28 +20,24 @@ public class VolunteerAvailability {
     @NotNull
     @Column(name = "day_of_week")
     private Integer dayOfWeek;
-    @Transient
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
-    private LocalDateTime startTime;
-    @Column(name = "start_minute")
-    private Integer startMinute;
-    @Transient
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
-    private LocalDateTime endTime;
-    @Column(name = "end_minute")
-    private Integer endMinute;
+
+    @Column(name = "start_time")
+    @DateTimeFormat(pattern = "HH:mm")
+    private LocalTime startTime;
+
+    @Column(name = "end_time")
+    @DateTimeFormat(pattern = "HH:mm")
+    private LocalTime endTime;
 
     public VolunteerAvailability() {
     }
 
-    public VolunteerAvailability(Long id, Long volunteerUserId, Integer dayOfWeek, LocalDateTime startTime, Integer startMinute, LocalDateTime endTime, Integer endMinute) {
+    public VolunteerAvailability(Long id, Long volunteerUserId, Integer dayOfWeek, LocalTime startTime, LocalTime endTime) {
         this.id = id;
         this.volunteerUserId = volunteerUserId;
         this.dayOfWeek = dayOfWeek;
         this.startTime = startTime;
-        this.startMinute = startMinute;
         this.endTime = endTime;
-        this.endMinute = endMinute;
     }
 
     public Long getId() {
@@ -68,35 +64,19 @@ public class VolunteerAvailability {
         this.dayOfWeek = dayOfWeek;
     }
 
-    public LocalDateTime getStartTime() {
+    public LocalTime getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(LocalDateTime startTime) {
+    public void setStartTime(LocalTime startTime) {
         this.startTime = startTime;
     }
 
-    public Integer getStartMinute() {
-        return startMinute;
-    }
-
-    public void setStartMinute(Integer startMinute) {
-        this.startMinute = startMinute;
-    }
-
-    public LocalDateTime getEndTime() {
+    public LocalTime getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(LocalDateTime endTime) {
+    public void setEndTime(LocalTime endTime) {
         this.endTime = endTime;
-    }
-
-    public Integer getEndMinute() {
-        return endMinute;
-    }
-
-    public void setEndMinute(Integer endMinute) {
-        this.endMinute = endMinute;
     }
 }

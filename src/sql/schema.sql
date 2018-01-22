@@ -33,8 +33,8 @@ CREATE TABLE `volunteer_availability` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `volunteer_user_id` bigint DEFAULT NULL,
   `day_of_week` int NOT NULL,
-  `start_minute` int NOT NULL,
-  `end_minute` int NOT NULL,
+  `start_time` time NOT NULL,
+  `end_time` time NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_volunteer_availability_volunteer_user_id` FOREIGN KEY (`volunteer_user_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;

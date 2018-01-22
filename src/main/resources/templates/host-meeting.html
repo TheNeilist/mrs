@@ -9,19 +9,19 @@
     <h1>Request to Host a Meeting</h1>
 
     <form action="#" th:action="@{/meetings/host}" th:object="${meeting}" method="post" class="w3-container">
-        <label for="dateTime">Meeting Date and Time</label><br/>
-        <div class="form-group">
-            <div class="input-group date form_datetime col-md-5"
-                 data-date-format="MM dd, yyyy - HH:ii p" data-link-field="dateTime"
-                 data-link-format="yyyy-mm-dd hh:ii">
-                <input class="form-control" size="16" type="text" value="" readonly="readonly"/>
-                <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
-                <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
-            </div>
-            <input type="hidden" id="dateTime" th:field="*{dateTime}" value=""/><br/>
+
+        <div class="input-group date form_datetime col-md-5" data-date-format="MM dd, yyyy - HH:ii p"
+             data-link-field="dateTime" data-link-format="yyyy-mm-dd hh:ii">
+            <label for="dateTime">Meeting Date and Time</label><br/>
+            <input class="form-control" size="16" type="text" value="" readonly="readonly"/>
+            <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+            <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
         </div>
+        <input type="hidden" id="dateTime" th:field="*{dateTime}" value=""/><br/>
         <br/>
+
         <button name="buttonSubmit" type="submit" value="1">Submit</button>
+
     </form>
 
 </div>
@@ -41,6 +41,8 @@
 		forceParse: 0,
         showMeridian: 1
     });
+
+
 
 </script>
 
