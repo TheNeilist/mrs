@@ -41,6 +41,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/",
+                        "/zipcode/import",
                         "/login",
                         "/register",
                         "/help").permitAll()
